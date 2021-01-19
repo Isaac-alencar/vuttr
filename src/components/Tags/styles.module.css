@@ -1,0 +1,12 @@
+.toolsTag {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.toolsTag span {
+  margin: 0 0.3rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #170c3a;
+}

@@ -1,0 +1,18 @@
+.titleLG {
+  margin: 1rem 0px 2rem 0px;
+  font-size: 4.2rem;
+  font-weight: 600;
+  line-height: 5rem;
+  font-family: "Source Sans Pro", sans-serif;
+  letter-spacing: 0.084rem;
+  color: #170c3a;
+}
+
+.titleMD {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 0.06rem;
+  line-height: 3.6rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #170c3a;
+}
