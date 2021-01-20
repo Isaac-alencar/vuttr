@@ -1,6 +1,13 @@
+import { useContext } from "react";
+import { ModalContext } from "../../context/toggleModalContext";
+
+import FloatActionButton from "../Buttons/FloatActionButton";
+
 import styles from "./styles.module.css";
 
 function SearchBar() {
+  const { _, setIsOpen } = useContext(ModalContext);
+
   return (
     <div className={styles.actions}>
       <div className={styles.inputBlock}>
@@ -16,8 +23,16 @@ function SearchBar() {
           </label>
         </div>
       </div>
-      <button className={styles.button}>+ Add</button>
-      <div className={styles.floatActionButton}>+</div>
+      {/* 
+        The generic `<ButtonPrimary />` is not used, because
+        on min size screen the floatActionButton is used instead of it.
+        So, we got to apply display none on `<ButtonPrimary />`,
+        this affects others places on he is used.
+       */}
+      <button onClick={() => setIsOpen(true)} className={styles.button}>
+        + Add
+      </button>
+      <FloatActionButton innerText="+" onClick={() => setIsOpen(true)} />
     </div>
   );
 }

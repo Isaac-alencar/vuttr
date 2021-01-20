@@ -73,31 +73,6 @@
   background-color: #244aa8;
 }
 
-.floatActionButton {
-  display: none;
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  z-index: 1;
-
-  width: 5rem;
-  height: 5rem;
-
-  border: none;
-  border-radius: 50%;
-  background-color: #365df0;
-  color: #ffffff;
-
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  letter-spacing: 0.036rem;
-  line-height: 5rem;
-
-  cursor: pointer;
-  transition: background-color ease-in 200ms;
-}
-
 @media only screen and (max-width: 1100px) {
   .inputBlock {
     display: flex;
@@ -111,8 +86,5 @@
   }
   .button {
     display: none;
-  }
-  .floatActionButton {
-    display: block;
   }
 }
