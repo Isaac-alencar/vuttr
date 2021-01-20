@@ -1,0 +1,53 @@
+.inputBlock {
+  display: flex;
+  flex-direction: column;
+  margin: 1.1rem auto;
+}
+
+.inputBlock input {
+  padding-left: 0.8rem;
+  width: 40.3rem;
+  height: 5rem;
+  background-color: #f5f4f6;
+  border: 1px solid #ebeaed;
+  border-radius: 0.5rem;
+
+  font-size: 2rem;
+  line-height: 2.6rem;
+  letter-spacing: 0.04rem;
+  font-weight: 400;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #170c3a;
+}
+
+.inputBlock input::placeholder {
+  font-size: 2rem;
+  line-height: 2.6rem;
+  letter-spacing: 0.04rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #b1adb9;
+}
+
+.inputBlock input:focus::placeholder {
+  font-size: 2rem;
+  line-height: 2.6rem;
+  letter-spacing: 0.04rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #8f8a9b;
+}
+
+.inputBlock label {
+  margin-bottom: 1.1rem;
+  font-size: 2rem;
+  line-height: 2.6rem;
+  letter-spacing: 0.04rem;
+  font-weight: 600;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #170c3a;
+}
+
+@media only screen and (max-width: 427px) {
+  .inputBlock input {
+    width: 100%;
+  }
+}

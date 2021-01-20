@@ -1,0 +1,126 @@
+.modalContainerBlur {
+  visibility: hidden;
+  display: none;
+}
+.modalContainerBlurActive {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100vh;
+  background-color: #170c3ae6;
+
+  transition: visibility ease-in 300ms;
+}
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+
+  padding: 4rem;
+  width: 60rem;
+  height: 33.8rem;
+
+  background-color: #ffffff;
+  border: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0px 2rem 2.5rem #0000001a;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.closeModal {
+  width: 2rem;
+  height: 2rem;
+  background-image: url("/assets/Close-2px.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.modalContainer strong {
+  font-size: 2.6rem;
+  font-weight: 600;
+  font-family: "Source Sans Pro", sans-serif;
+  line-height: 3.2rem;
+  letter-spacing: 0.05rem;
+  color: #170c3a;
+}
+
+.modalContainer p {
+  margin: 5rem 0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.04rem;
+  line-height: 2.6rem;
+  color: #8f8a9b;
+}
+
+.modalContainer strong > span {
+  margin-right: 1.6rem;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 4rem;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 650px) {
+  .modalContainer {
+    width: 40rem;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .modalContainer {
+    width: 40rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .modalContainer {
+    width: 35rem;
+    padding: 2rem;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    align-self: center;
+    margin-top: 4rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .modalContainer {
+    width: 31rem;
+    padding: 2rem;
+  }
+  .modalContainer p {
+    margin: 3rem 0;
+  }
+  .buttons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    align-self: center;
+    margin-top: 4rem;
+  }
+}

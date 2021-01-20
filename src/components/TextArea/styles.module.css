@@ -1,0 +1,49 @@
+.inputBlock {
+  display: flex;
+  flex-direction: column;
+  margin: 1.1rem auto;
+}
+
+.inputBlock textarea::placeholder {
+  font-size: 2rem;
+  line-height: 2.6rem;
+  letter-spacing: 0.04rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #b1adb9;
+}
+
+.inputBlock textarea:focus {
+  background-color: #ebeaed;
+  border: 1px solid #dedce1;
+}
+
+.inputBlock textarea {
+  padding: 1rem;
+  width: 40.3rem;
+  height: 11rem;
+  background-color: #f5f4f6;
+  border: 1px solid #ebeaed;
+  border-radius: 0.5rem;
+
+  font-size: 2rem;
+  line-height: 2.6rem;
+  letter-spacing: 0.04rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #170c3a;
+}
+
+.inputBlock label {
+  margin-bottom: 1.1rem;
+  font-size: 2rem;
+  line-height: 2.6rem;
+  letter-spacing: 0.04rem;
+  font-weight: 600;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #170c3a;
+}
+
+@media only screen and (max-width: 427px) {
+  .inputBlock textarea {
+    width: 25rem;
+  }
+}
