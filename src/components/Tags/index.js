@@ -2,15 +2,7 @@ import React from "react";
 
 import styles from "./styles.module.css";
 
-function Tags() {
-  const tags = [
-    "organization",
-    "planning",
-    "collaboration",
-    "writing",
-    "calendar",
-  ];
-
+function Tags({ tags }) {
   return (
     <div className={styles.toolsTag}>
       {tags &&

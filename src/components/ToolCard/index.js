@@ -4,24 +4,21 @@ import Tags from "../Tags";
 
 import styles from "./styles.module.css";
 
-function TechCard() {
+function ToolCard({ title, link, description, tags }) {
   const { _, setIsDisplaying } = useContext(RemoveToolModalContext);
 
   return (
     <div className={styles.container}>
       <div className={styles.linkTitle}>
-        <a className={styles.title}>
-          <strong>Notion</strong>
+        <a className={styles.title} href={link}>
+          <strong>{title}</strong>
         </a>
         <button onClick={() => setIsDisplaying(true)}>✘ remove</button>
       </div>
-      <p className={styles.descriptionTool}>
-        All in one tool to organize teams and ideas. Write, plan, collaborate,
-        and get organized.
-      </p>
-      <Tags />
+      <p className={styles.descriptionTool}>{description}</p>
+      <Tags tags={tags} />
     </div>
   );
 }
 
-export default TechCard;
+export default ToolCard;

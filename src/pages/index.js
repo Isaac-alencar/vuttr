@@ -1,4 +1,8 @@
+import { useEffect, useState } from "react";
+
 import Head from "next/head";
+
+import api from "../services/api";
 
 import {
   ModalProvider,
@@ -13,6 +17,17 @@ import ToolCard from "../components/ToolCard";
 import indexStyle from "../styles/index.module.css";
 
 export default function Home() {
+  useEffect(() => {
+    getToolsList();
+  }, []);
+
+  const [toolsList, setToolsList] = useState([]);
+
+  async function getToolsList() {
+    const response = await api.get();
+    setToolsList(response.data);
+  }
+
   return (
     <ModalProvider>
       <div className={indexStyle.container}>
@@ -27,7 +42,18 @@ export default function Home() {
         <Header />
         <RemoveToolModalProvider>
           <RemoveToolModal />
-          <ToolCard />
+          {toolsList &&
+            toolsList.map((tool) => {
+              return (
+                <ToolCard
+                  key={tool.id}
+                  title={tool.title}
+                  link={tool.link}
+                  description={tool.description}
+                  tags={tool.tags}
+                />
+              );
+            })}
         </RemoveToolModalProvider>
       </div>
     </ModalProvider>
