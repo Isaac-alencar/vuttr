@@ -45,7 +45,7 @@
 
 .floatActionButton {
   display: none;
-  position: absolute;
+  position: fixed;
   right: calc(100vw - 98.5vw);
   bottom: calc(100vw - 98.5vw);
 
