@@ -1,37 +1,62 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+
+import api from "../../services/api";
+
 import { ModalContext } from "../../context/toggleModalContext";
+import {
+  InputSearchContext,
+  ToolsListContext,
+} from "../../context/searchContext";
 
 import FloatActionButton from "../Buttons/FloatActionButton";
+import ButtonPrimary from "../Buttons/ButtonPrimary";
 
 import styles from "./styles.module.css";
+import SearchInput from "../Inputs/SearchInput";
+import CheckBoxInput from "../Inputs/CheckBoxInput";
 
 function SearchBar() {
+  const [value, setValue] = useState("");
+
   const { _, setIsOpen } = useContext(ModalContext);
+
+  const { isTagSearchEnabled, setIsTagSearchEnebled } = useContext(
+    InputSearchContext
+  );
+  const { setToolsList } = useContext(ToolsListContext);
+
+  async function searchTool(e) {
+    let response;
+    if (isTagSearchEnabled === false && e.key === "Enter") {
+      response = await api.get(`?q=${value}`);
+      setToolsList(response.data);
+    } else if (isTagSearchEnabled === true && e.key === "Enter") {
+      response = await api.get(`?tags_like=${value}`);
+      setToolsList(response.data);
+    }
+  }
 
   return (
     <div className={styles.actions}>
       <div className={styles.inputBlock}>
-        <input type="text" placeholder="Search" className={styles.searchBar} />
-        <div className={styles.checkbox}>
-          <input
-            type="checkbox"
-            id="checkbox"
-            className={styles.checkboxInput}
-          />
-          <label htmlFor="checkbox" className={styles.label}>
-            Search in tags only
-          </label>
-        </div>
+        <SearchInput
+          name="Search"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={searchTool}
+        />
+        <CheckBoxInput
+          checked={isTagSearchEnabled}
+          onChange={() => setIsTagSearchEnebled(!isTagSearchEnabled)}
+          label="Search in tags only"
+          name="checkbox"
+        />
       </div>
-      {/* 
-        The generic `<ButtonPrimary />` is not used, because
-        on min size screen the floatActionButton is used instead of it.
-        So, we got to apply display none on `<ButtonPrimary />`,
-        this affects others places on he is used.
-       */}
-      <button onClick={() => setIsOpen(true)} className={styles.button}>
-        + Add
-      </button>
+      <ButtonPrimary
+        innerText="+ Add"
+        id="add_tool"
+        onClick={() => setIsOpen(true)}
+      />
       <FloatActionButton innerText="+" onClick={() => setIsOpen(true)} />
     </div>
   );
