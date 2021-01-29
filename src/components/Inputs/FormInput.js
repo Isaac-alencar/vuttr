@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-function Input({ name, label, ...inputProps }) {
+function FormInput({ name, label, ...inputProps }) {
   return (
     <div className={styles.inputBlock}>
       <label htmlFor={label}>{name}</label>
@@ -15,4 +15,4 @@ function Input({ name, label, ...inputProps }) {
   );
 }
 
-export default Input;
+export default FormInput;

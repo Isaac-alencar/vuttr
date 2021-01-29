@@ -1,8 +1,8 @@
 import styles from "./styles.module.css";
 
-function ButtonPrimary({ innerText, ...buttonProps }) {
+function ButtonPrimary({ id, innerText, ...buttonProps }) {
   return (
-    <button className={styles.ButtonPrimaryStyles} {...buttonProps}>
+    <button id={id} className={styles.ButtonPrimaryStyles} {...buttonProps}>
       {innerText}
     </button>
   );
