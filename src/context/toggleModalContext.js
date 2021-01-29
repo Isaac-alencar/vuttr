@@ -17,8 +17,17 @@ export const RemoveToolModalContext = createContext({});
 export const RemoveToolModalProvider = (props) => {
   const [isDisplaying, setIsDisplaying] = useState(false);
 
+  const [objectToDelete, setObjectToDelete] = useState({});
+
   return (
-    <RemoveToolModalContext.Provider value={{ isDisplaying, setIsDisplaying }}>
+    <RemoveToolModalContext.Provider
+      value={{
+        isDisplaying,
+        setIsDisplaying,
+        objectToDelete,
+        setObjectToDelete,
+      }}
+    >
       {props.children}
     </RemoveToolModalContext.Provider>
   );
