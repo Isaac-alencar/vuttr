@@ -1,15 +1,39 @@
 import { useContext, useState } from "react";
+
+import api from "../../services/api";
+
 import { ModalContext } from "../../context/toggleModalContext";
 
-import Input from "../Input";
+import Input from "../Inputs/FormInput";
 import TextArea from "../TextArea";
 
 import styles from "./styles.module.css";
 
 function AddToolModal() {
-  const [toolName, setToolName] = useState("");
-
   const { isOpen, setIsOpen } = useContext(ModalContext);
+
+  const [title, setTitle] = useState("");
+  const [link, setLink] = useState("");
+  const [description, setDescription] = useState("");
+  const [tags, setTags] = useState("");
+
+  async function handleSubmitInput(e) {
+    e.preventDefault();
+
+    const splitedTags = tags.split(" ");
+    const response = await api.post("", {
+      title,
+      link,
+      description,
+      tags: splitedTags,
+    });
+
+    if (response.status === 201) {
+      alert("Tool created with sucessfuly");
+    }
+    setIsOpen(false);
+    window.location.href = "/";
+  }
 
   return (
     <div
@@ -30,12 +54,28 @@ function AddToolModal() {
           <Input
             name="Tool Name"
             label="tool_name"
-            onChange={(e) => setToolName(e.target.value)}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
-          <Input name="Tool Link" label="tool_link" />
-          <TextArea name="Tool description" label="tool_description" />
-          <Input name="Tags" label="tool_tags" />
-          <button onClick={() => console.log(toolName)}>Add tool</button>
+          <Input
+            name="Tool Link"
+            label="tool_link"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+          />
+          <TextArea
+            name="Tool description"
+            label="tool_description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <Input
+            name="Tags"
+            label="tool_tags"
+            value={tags}
+            onChange={(e) => setTags(e.target.value)}
+          />
+          <button onClick={(e) => handleSubmitInput(e)}>Add tool</button>
         </form>
       </div>
     </div>
