@@ -4,16 +4,28 @@ import Tags from "../Tags";
 
 import styles from "./styles.module.css";
 
-function ToolCard({ title, link, description, tags }) {
-  const { _, setIsDisplaying } = useContext(RemoveToolModalContext);
+function ToolCard({ title, link, description, tags, id }) {
+  const { _, setIsDisplaying, objectToDelete, setObjectToDelete } = useContext(
+    RemoveToolModalContext
+  );
 
   return (
     <div className={styles.container}>
       <div className={styles.linkTitle}>
-        <a className={styles.title} href={link}>
+        <a className={styles.title} href={link} target="_blank">
           <strong>{title}</strong>
         </a>
-        <button onClick={() => setIsDisplaying(true)}>✘ remove</button>
+        <button
+          onClick={() => {
+            setIsDisplaying(true);
+            setObjectToDelete({
+              title,
+              id,
+            });
+          }}
+        >
+          ✘ remove
+        </button>
       </div>
       <p className={styles.descriptionTool}>{description}</p>
       <Tags tags={tags} />
