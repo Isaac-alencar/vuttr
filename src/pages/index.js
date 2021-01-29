@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
 import Head from "next/head";
 
@@ -9,6 +9,8 @@ import {
   RemoveToolModalProvider,
 } from "../context/toggleModalContext";
 
+import { ToolsListContext } from "../context/searchContext";
+
 import AddToolModal from "../components/AddToolModal";
 import RemoveToolModal from "../components/RemoveToolModal";
 import Header from "../components/Header";
@@ -17,11 +19,11 @@ import ToolCard from "../components/ToolCard";
 import indexStyle from "../styles/index.module.css";
 
 export default function Home() {
+  const { toolsList, setToolsList } = useContext(ToolsListContext);
+
   useEffect(() => {
     getToolsList();
   }, []);
-
-  const [toolsList, setToolsList] = useState([]);
 
   async function getToolsList() {
     const response = await api.get();
@@ -51,6 +53,7 @@ export default function Home() {
                   link={tool.link}
                   description={tool.description}
                   tags={tool.tags}
+                  id={tool.id}
                 />
               );
             })}
