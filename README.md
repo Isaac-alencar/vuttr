@@ -28,7 +28,6 @@
     <img 
         src="./.github/demo.png" 
         alt="vuttr demo"
-        width="300"
     />
 </div>
 <p align="center">
