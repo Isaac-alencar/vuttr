@@ -28,14 +28,8 @@
     <img 
         src="./.github/demo.png" 
         alt="vuttr demo"
-        width="300"
     />
 </div>
-<p align="center">
-    <a href="" target="_blank">
-        <img alt="Demo on Netlify" src="https://res.cloudinary.com/lukemorales/image/upload/v1599785319/readme_logos/demo_on_netlify_umjmch.png">
-    </a>
-</p>
 
 ## :rocket: Tecnlogias
 - [Next.js](https://nextjs.org/)

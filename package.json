@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm-run-all -p start:*",
-    "start:server": "json-server --watch ./server/db.json --port 3333",
+    "dev": "npm-run-all -p start:*",
+    "dev:server": "json-server --watch ./server/db.json --port 3333",
     "dev:app": "next dev",
     "build": "next build",
-    "start:app": "next start"
+    "start": "next start"
   },
   "dependencies": {
     "axios": "^0.21.1",
